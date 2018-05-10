@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>按钮倒数5秒后才能点击</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/succeed.css" />
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function() {
+		setTimeout(function() {
+			this.location.href = "Login.jsp"
+		}, 5000);
+		/* var i=5;  
+		//自动刷新页面上的时间
+		function after(){
+		    $("#time").empty().append(i);
+		    i=i-1;
+		    setTimeout(function(){
+		    	$("#time").html(i);
+		        after();
+		        
+		    },1000);		    
+		} */
+		var time = 5;
+		$("#time").html(time);
+		interval = setInterval(function() {
+			$("#time").html(time--);
+			//当time等于0时停止
+			if (time == 0) {
+				clearInterval(interval);
+			}
+		}, 1000);
+
+	})
+</script>
+<body>
+<div id="page">
+	<div id="top"><img src="img/dui.png" id="imgd"/><span id="span1">你已成功注册聚合数据账号</span></div>
+	<div id="center"><!-- 接受用户名信息 -->
+	用户名：${requestScope.msg}（如果忘记密码或丢失账号，可以通过手机或邮箱找回密码）
+	</div>
+	<div id="buttom">
+		在<span id="time"></span>秒后自动跳转到登陆页面，如果没有请点击手动跳转
+	</div>
+	<a href="Login.jsp">返回首页</a>
+</div>
+
+
+</body>
+
+</html>

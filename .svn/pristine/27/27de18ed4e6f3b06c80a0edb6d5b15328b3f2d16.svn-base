@@ -1,0 +1,248 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/Registerstyle.css" />
+<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function() {
+		//设置按钮是否可以点击的初始值
+		var u = false;
+		var p = false;
+		var e = false;
+		//设置验证码
+		//var code = Math.floor(Math.random() * 9000) + 1000;
+		//点击获取验证码事件
+		$("#btn").click(function() {
+			$("#btn").attr("disabled", true);
+			$("#btn").css("background", "");
+			$("#btn").html("10秒之后再试");
+			var time = 9;
+			interval = setInterval(function() {
+				$("#btn").html(time-- + "秒之后再试");
+				//当time等于0时停止
+				if (time == -1) {
+					clearInterval(interval);
+					$("#btn").html("获取验证码");
+					if (e) {
+						$("#btn").attr("disabled", false);
+						$("#btn").css("background", "#03C5FF");
+					}
+
+				}
+			}, 1000);
+			//$("#code").attr("value", code);
+			//通过ajax将验证码发送到servlet
+			var email = $("#email").val();
+			$.ajax({
+				type : "GET",
+				url : "code",
+				data : {
+					"email" : email
+				},
+				success : function(msg) {
+					//
+				}
+
+			});
+		});
+
+		//改变内容时获取输入框数据
+		$("#username").change(function() {
+			//获取用户input元素
+			var user = $("#username").val();
+			//写出正则表达式
+			var reg = /^[a-zA-Z0-9]{6,20}$/;
+			//进行匹配
+			var flaguser = reg.test(user);
+			//条件判断
+			if (!flaguser) {
+				//alert("123");
+				u = false;
+				$("#username+p").css("display", "block");
+			} else {
+				u = true;
+				$("#username+p").css("display", "none");
+
+			}
+			/* alert(u+"-"+p+"-"+e); */
+			if (u && e && p) {
+				$("#register").css("background", "red");
+				$("#register").attr("disabled", false);
+				$("#register").css("cursor", "pointer");
+			} else {
+				$("#register").attr("disabled", true);
+			}
+		});
+
+		$("#password").change(function() {
+			//获取用户input元素
+			var pass = $("#password").val();
+			//写出正则表达式
+			var reg1 = /^\w{6,20}$/;
+			//进行匹配
+			var flagpass = reg1.test(pass);
+			if (!flagpass) {
+				p = false;
+				//alert("123");
+				$("#password+p").css("display", "block");
+			} else {
+				p = true;
+				$("#password+p").css("display", "none");
+
+			}
+			/* alert(u+"-"+p+"-"+e); */
+			if (u && e && p) {
+				$("#register").css("background", "red");
+				$("#register").attr("disabled", false);
+				$("#register").css("cursor", "pointer");
+			} else {
+				$("#register").attr("disabled", true);
+			}
+		});
+
+		$("#email").change(function() {
+			//获取用户input元素
+			var idnum = $("#email").val();
+			//写出正则表达式
+			var reg2 = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
+			//进行匹配
+			var flagidnum = reg2.test(idnum);
+			if (!flagidnum) {
+				//alert("123");
+				e = false;
+				$("#email+p").css("display", "block");
+				$("#btn").css("background", "");
+
+			} else {
+				e = true;
+			 
+				$("#btn").css("background", "#03C5FF");
+				$("#btn").attr("disabled", false);
+				$("#email+p").css("display", "none");
+				$("#btn").css("cursor", "pointer");
+			}
+			/* alert(u+"-"+p+"-"+e); */
+			if (u && e && p) {
+				$("#register").css("background", "#03C5FF");
+				$("#register").attr("disabled", false);
+				$("#register").css("cursor", "pointer");
+			} else {
+				$("#register").attr("disabled", true);
+			}
+		});
+		//setTimeout(function () { this.location.href = "https://boke112.com/" }, 5000);
+
+		/* $("#register").mouserover(function() {
+			alert(u+e+p);
+			if (u&&e&&p) {
+				$("#register").attr("disabled", true);
+			} else {
+				$("#register").attr("disabled", false);
+			}
+		}); */
+		/* $("#yanzheng").blur(function() {
+			//获取用户input元素
+			var yanzheng = $("#yanzheng").val();
+			//写出正则表达式
+			var reg3 = /^[0-9]{4}$/;
+			//进行匹配
+			var flagyanzheng = reg3.test(yanzheng);
+			if(!flagyanzheng) {
+				//alert("123");
+				$("#yanzheng~p").css("display", "block");
+			} else {
+				$("#yanzheng~p").css("display", "none");
+			}
+		}); */
+
+	});
+</script>
+</head>
+
+<body>
+	<!--头部开始-->
+	<div class="headc">
+		<div class="head">
+			<div id="head_left">
+				<a href="new_file.html"><img
+					src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/register/juhelogo.png"
+					id="jpg1" /></a>
+			</div>
+			<div id="head_right">
+				<span>已有聚合账号，<a href="Login.jsp">立即登录</a></span>
+			</div>
+		</div>
+	</div>
+
+	<!--头部结束-->
+	<!--内容开始-->
+	<div class="page_body">
+		<div id="page_body_center">
+			<div id="page_body_center_top">
+
+				<h1>欢迎注册</h1>
+				<h2>百款接口免费试用</h2>
+			</div>
+			<div id="page_body_center_buttom">
+				<form action="Register" method="post">
+					<div class="reg_row">
+						<input type="text" name="username" id="username"
+							placeholder="用户名（6~20字母或数字）" value="" />
+						<p class="error">
+							<span class="error_tip"><img src="img/error.png"
+								width="10px" height="10px" /></span> <span class="error_row">
+								昵称需要在6~20位字母或数字间 </span>
+						</p>
+					</div>
+					<div class="reg_row">
+						<input type="password" name="pwd" id="password" placeholder="密码"
+							value="" />
+						<p class="error">
+							<span class="error_tip"><img src="img/error.png"
+								width="10px" height="10px" /></span> <span class="error_row">
+								请输入不小于6位的密码 </span>
+						</p>
+					</div>
+					<div class="reg_row">
+						<input type="text" name="email" id="email" placeholder="邮箱"
+							value="" />
+						<p class="error">
+							<span class="error_tip"><img src="img/error.png"
+								width="10px" height="10px" /></span> <span class="error_row">
+								请输入邮箱 </span>
+						</p>
+					</div>
+					<div class="reg_row">
+						<input type="text" name="code" id="code" placeholder="验证码"
+							value="" />
+						<button id="btn" type="button" disabled="true">获取验证码</button>
+						<!-- <input type="button" name="" id="btn" value="获取验证码" /> -->
+						<!-- <p class="error">
+								<span class="error_tip"><img src="img/error.png" width="10px" height="10px"/></span>
+								<span class="error_row">
+								请输入验证码
+							</span>
+							</p> -->
+					</div>
+					<div class="reg_row">
+						<input type="checkbox" name="" id="lable" value="" />我已阅读并接受 <a
+							href="#" style="font-size: 12px;">《聚合用户服务协议》</a>
+					</div>
+					<div class="reg_row">
+						<input type="submit" name="" id="register" value="立即注册"
+							disabled="true" />
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--内容结束-->
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+package com.zz624.biz.impl;
+
+import com.zz624.biz.UserBiz;
+import com.zz624.dao.UserDao;
+import com.zz624.dao.impl.UserDaoImpl;
+
+public class UserBizImpl implements UserBiz{
+	private UserDao dao;
+	
+	public UserBizImpl() {
+		super();
+		this.dao = new UserDaoImpl();
+	}
+
+	@Override
+	public int login(String username, String password) {
+		boolean usernameIsExist=this.dao.usernameIsExist(username);
+		boolean passwordIsTrue=this.dao.selectUser(username).getPassword().equals(password);
+		System.out.println(passwordIsTrue);
+		if (!usernameIsExist) {
+			return 10000001;//用户名不存在
+		}else if (!passwordIsTrue) {
+			return 10000002;//密码错误
+		}
+		return 10002000;//用户名密码正确，允许登录
+	}
+
+	@Override
+	public int rejister(String username, String password, String email) {
+		//判断用户名和邮箱都不存在时才可进行插入
+		if (!this.dao.usernameIsExist(username)||!this.dao.emailIsExist(email)) {
+			this.dao.insertUser(username, password, email);
+			return 10002000;
+		}
+		return 10001001;
+	}
+
+}

@@ -1,0 +1,125 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	background-color: #f3f5f8;
+}
+.headc{
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+}
+.head{
+	width: 900px;
+	height: 60px;
+	border: 1px;
+	margin: 0 auto;
+}
+#head_left{
+	float: left;
+	line-height: 60px;
+	//text-align: center;
+	position: relative;
+}
+#jpg1{
+	//line-height: 60px;
+	position: absolute;
+	top: 15px;
+}
+#head_right{
+	float: right;
+	line-height: 60px;
+	font-size: 14px;
+}
+.page_body{
+	width: 900px;
+	height: 590px;
+	//border: 1px solid red;
+	margin: 0 auto;
+	margin-top: 80px;
+	background-color: #fff;
+}
+#page_body_center{
+	width: 400px;
+	height: 552px;
+	margin: 0 auto;
+	//border: 1px solid red;
+}
+#page_body_center_top{
+	width: 400px;
+	height: 100px;
+	padding-top: 40px;
+}
+.reg_row{
+	
+	width: 400px;
+	height: 70px;
+	position: relative;
+	//color: #00bdff;
+	font-size: 14px;
+	//border: 1px solid;
+	color: #ABC2E8;
+	font-size: 12px;
+}
+/*.username{
+	width: 420px;
+	height: 41px;
+	float: left;
+	border: 1px solid;
+}*/
+.reg_row input{
+	text-indent: 1em;
+	width: 400px;
+	height: 35px;
+	border: 1px solid #c5c5c5;
+	border-radius: 3px;
+}
+.error{
+	display: none;
+	width: 200px;
+	height: 20px;
+	//border: 1px solid;
+	position: absolute;
+	left: 410px;
+	top: 5px;
+	color: #f15b5b;
+}
+.error_row{
+	font-size: 12px;
+}
+#code{
+	width: 260px;
+	height: 41px;
+	
+}
+#btn{
+	width: 130px;
+	height: 41px;
+	color: #FFFFFF;
+
+}
+#lable{
+	width: 10px;
+	height: 10px;
+	
+	
+}
+a{
+	color: 00bdff;
+	font-size: 14px;
+}
+a:link{
+	color:#E7D3FF;
+	text-decoration: none;
+}
+a:hover{
+	color: #E7D3FF;
+}
+a:visited{
+	color: #E7D3FF;
+}
+#register{
+	color: #FFFFFF;
+	background-color: #E9E9E9;
+}

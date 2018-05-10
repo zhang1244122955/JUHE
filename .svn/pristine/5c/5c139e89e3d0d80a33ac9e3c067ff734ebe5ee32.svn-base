@@ -1,0 +1,239 @@
+$(function() {
+		var flag=false;
+		$(".but01").click(function() {
+			$(".content_right_content_text_2").css("display", "block");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$("#content_right_content_tips_sel_1").click(function() {
+			$(".content_right_content_text_1").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$(".but1").click(function() {
+			$(".content_right_content_text_4").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+		});
+		$("#content_right_content_tips_sel_2").click(function() {
+			$(".content_right_content_text_2").css("display", "block");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$("#but2").click(function() {
+			$(".content_right_content_text_3").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$("#content_right_content_tips_sel_3").click(function() {
+			$(".content_right_content_text_3").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$("#content_right_content_tips_sel_4").click(function() {
+			$(".content_right_content_text_4").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+		});
+		$("#but3").click(function() {
+			$(".content_right_content_text_3").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$(".but1").mouseenter(function() {
+			$(this).css("background-color","rgb(0, 120, 215)");
+		});
+		$(".but1").mouseleave(function() {
+			$(this).css("background-color","rgb(0, 154, 235)");
+		});
+		$(".but0").mouseenter(function() {
+			$(this).css("background-color","rgb(203, 202, 203)");
+		});
+		$(".but0").mouseleave(function() {
+			$(this).css("background-color","rgb(183, 183, 183)");
+		});
+		$("#but2").mouseenter(function() {
+			$(this).css("background-color","rgb(208, 208, 208)");
+		});
+		$("#but2").mouseleave(function() {
+			$(this).css("background-color","rgb(234, 234, 234)");
+		});
+		$("#but03").mouseenter(function() {
+			$(this).css("background-color","rgb(208, 208, 208)");
+			$(this).css("color","rgb(122,122,122)");
+		});
+		$("#but03").mouseleave(function() {
+			$(this).css("background-color","rgb(194,192,193)");
+			$(this).css("color","rgb(96, 96, 96)");
+		});
+		$("#daifu").mouseenter(function() {
+			$(this).css("color","rgb(158, 158, 158)");
+		});
+		$("#daifu").mouseleave(function() {
+			$(this).css("color","rgb(20,20,20)");
+		});
+		$(".content_right_dbody_top_1").mouseenter(function() {
+			$(this).css("opacity","0.6");
+		});
+		$(".content_right_dbody_top_1").mouseleave(function() {
+			$(this).css("opacity","1");
+		});
+		$("#img002").click(function() {
+			flag=true;
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/Api6.png\">");
+			$(".content_right_dbody_top_center_right").css("display", "block");
+		});
+		$("#img002").mouseenter(function() {
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/Api6.png\">");
+			$(".content_right_dbody_top_center_right").css("display", "block");
+		});
+		$("#img002").mouseleave(function() {
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/Api6.png\">");
+			if(flag){
+				$(".content_right_dbody_top_center_right").css("display", "block");
+			}else{
+				$(".content_right_dbody_top_center_right").css("display", "none");
+			}
+		});
+		
+		$("#img001").click(function() {
+			flag=true;
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/wei.png\">");
+			$(".content_right_dbody_top_center_right").css("display", "block");
+		});
+		$("#img001").mouseenter(function() {
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/wei.png\">");
+			$(".content_right_dbody_top_center_right").css("display", "block");
+		});
+		$("#img001").mouseleave(function() {
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/wei.png\">");
+			if(flag){
+				$(".content_right_dbody_top_center_right").css("display", "block");
+			}else{
+				$(".content_right_dbody_top_center_right").css("display", "none");
+			}
+		});
+	})
+	        $(function () {
+            function Init(node) {
+                return node.html("<option>---请选择---</option>");
+            }
+/* //多维数组做数据来源 */
+            var db = {
+            河北: {
+                    唐山: "路北区,路南区,丰润区",
+                    张家口: "桥东区,桥西区,下花园区,宣化区",
+                    石家庄:"A,B,C,D"
+                },
+        北京: {
+                    APPLAY: "AL,EZ瑞尔,剑圣",
+                    HUABEI: "AL,力士,刺客,气宗师",
+                    JIEBEI: "AL,B,C,D"
+                },
+                上海: {
+                    ggs: "BD,EZ瑞尔,剑圣",
+                    BD: "BD,力士,刺客,气宗师",
+                    BDBD: "BD,B,C,D",
+                }
+            };
+　　　　　　　　// 初始化select节点
+            $.each(db, function (changShang) {
+                $("#selF").append("<option>" + changShang + "</option>");
+            })
+            // 一级变动
+            $("#selF").change(function () {
+                // 清空二三级
+                Init($("#selB"));
+                Init($("#selC"));
+                $.each(db,function (cs,pps) {
+                    if ($("#selF option:selected").text() == cs) {
+                        $.each(pps, function (pp, xhs) {
+                            $("#selB").append("<option>" + pp + "</option>");
+                        });
+                        $("#selB").change(function () {
+                            Init($("#selC"));
+                            $.each(pps, function (pp,xhs) {
+                                if ($("#selB option:selected").text()==pp) {
+                                    $.each(xhs.split(','), function () {
+                                        $("#selC").append("<option>" + this + "</option>");
+                                    })
+                                }
+                            })
+                        })
+                    }
+                })
+            })
+
+        });
+		/* 邮编判断 */
+		function isPostcodeNo(code) {
+				var pattern = /^\d{6}$/;
+				return pattern.test(code);
+			}
+		/* 邮编判断 */
+		function userPost(inputid, spanid) {
+				$(inputid).blur(function() {
+					if($.trim($(inputid).val()).length == 0) {
+						$(spanid).html("× 邮编码没有输入");
+					} else {
+						if(isPostcodeNo($.trim($(inputid).val())) == false) {
+							$(spanid).html("× 邮编码不正确");
+						}
+					}
+					$(inputid).focus(function() {
+						$(spanid).html("");
+					});
+				});
+			};
+			userPost('#postcode', "#checkExistPost");
+			/* 姓名 */
+			function isChinaName(name) {
+				var pattern = /^[\u4E00-\u9FA5]{1,6}$/;
+				return pattern.test(name);
+			}
+			/* 用户名判断 */
+			function userName(inputid, spanid) {
+				$(inputid).blur(function() {
+					if($.trim($(inputid).val()).length == 0) {
+						$(spanid).html("× 收货人姓名没有输入");
+					} else {
+						if(isChinaName($.trim($(inputid).val())) == false) {
+							$(spanid).html("× 收货人姓名不合法");
+						}
+					}
+				});
+				$(inputid).focus(function() {
+					$(spanid).html("");
+				});
+
+			};
+			userName('#name', "#checkExistname");
+			// 验证手机号
+			function isPhoneNo(phone) {
+				var pattern = /^1[34578]\d{9}$/;
+				return pattern.test(phone);
+			}
+		/* 手机号判断 */
+		function userTel(inputid, spanid) {
+			$(inputid).blur(function() {
+				if($.trim($(inputid).val()).length == 0) {
+					$(spanid).html("× 手机号没有输入");
+				} else {
+					if(isPhoneNo($.trim($(inputid).val())) == false) {
+						$(spanid).html("× 手机号码不正确");
+					}
+				}
+				$(inputid).focus(function() {
+					$(spanid).html("");
+				});
+			});
+		};
+		userTel('#telephone', "#checkExistPhone");
