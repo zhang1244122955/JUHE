@@ -1,0 +1,565 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>API数据接口_免费数据调用-聚合数据</title>
+<link rel="stylesheet" type="text/css" href="css/commodity.css" />
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".header-btn1").mouseover(function() {
+			$(this).css("color", "#BBBBBB");
+			$(this).css("border", "2px solid #ddd");
+		})
+		$(".header-btn1").mouseout(function() {
+			$(this).css("color", "#666");
+			$(this).css("border", "2px solid rgba(102, 102, 102, 0.3)");
+		})
+		$(".header-btn2").mouseover(function() {
+			$(this).css("background-color", "dodgerblue");
+		})
+		$(".header-btn2").mouseout(function() {
+			$(this).css("background-color", "#00BDFF");
+		})
+		$(".header-menu-item").mouseover(function() {
+			$(this).css("color", "#BBBBBB");
+		})
+		$(".header-menu-item").mouseout(function() {
+			$(this).css("color", "#666");
+		})
+		$(".header-menu-item-active").mouseover(function() {
+			$(this).find(".header-menu-item-nav").css("display", "block");
+		})
+		$(".header-menu-item-active").mouseout(function() {
+			$(this).find(".header-menu-item-nav").css("display", "none");
+		})
+		$(".api-nav").mouseover(function() {
+			$(this).css("color", "#BBBBBB");
+		})
+		$(".api-nav").mouseout(function() {
+			$(this).css("color", "#666");
+		})
+		$(".word2").mouseover(function() {
+			$(this).css("color", "#00BDFF");
+		})
+		$(".word2").mouseout(function() {
+			$(this).css("color", "#BBBBBB");
+		})
+		$(".select-type-name").mouseover(function() {
+			$(this).css("color", "#BBBBBB");
+		})
+		$(".select-type-name").mouseout(function() {
+			$(this).css("color", "#666");
+		})
+		$(".api-list-li").mouseover(function() {
+			$(this).css("box-shadow", "1px 3px 4px #DDD");
+		})
+		$(".api-list-li").mouseout(function() {
+			$(this).css("box-shadow", "1px 3px 4px #FFF");
+		})
+		$(".api-info").mouseover(function() {
+			$(this).animate({
+				"top" : "-10px"
+			}, 10);
+		})
+		$(".api-info").mouseout(function() {
+			$(this).animate({
+				"top" : "0px"
+			}, 10);
+		})
+	})
+</script>
+<style type="text/css">
+</style>
+</head>
+
+<body>
+	<div id="header">
+		<div class="header-nav">
+			<div class="header-logo">
+				<a href="index.jsp"><img src="img/commlogo.png" /></a>
+			</div>
+			<div class="header-menu">
+				<div class="header-menu-item"></div>
+				<div class="header-menu-item" style="width: 90px;">
+					<a class="header-menu-item" href="index.jsp">首页</a>
+				</div>
+				<div class="header-menu-item-active">
+					<a class="header-title" href="#">数据服务</a>
+					<div class="header-menu-item-nav">
+						<table>
+							<tr>
+								<td></td>
+								<td class="word1"><a href="#">金融征信</a></td>
+								<td class="word1"><a href="#">生活常用</a></td>
+								<td class="word1"><a href="#">车辆服务</a></td>
+								<td class="word1"><a href="#">短信服务</a></td>
+								<td class="word1"><a href="#">短信服务</a></td>
+								<td class="word1"><a href="#">应用开发</a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><a class="word2" href="#">银行卡四元素校验</a></td>
+								<td><a class="word2" href="#">常用快递</a></td>
+								<td><a class="word2" href="#">全国车辆违章</a></td>
+								<td><a class="word2" href="#">短信API服务</a></td>
+								<td><a class="word2" href="#">电信基站</a></td>
+								<td><a class="word2" href="#">证件识别</a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><a class="word2" href="#">身份证实名认证</a></td>
+								<td><a class="word2" href="#">全国天气预报</a></td>
+								<td><a class="word2" href="#">尾号银行</a></td>
+								<td><a class="word2" href="#">语音验证码</a></td>
+								<td><a class="word2" href="#">地图坐标服务</a></td>
+								<td><a class="word2" href="#">二维码生成</a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><a class="word2" href="#">股票数据</a></td>
+								<td><a class="word2" href="#">空气质量</a></td>
+								<td><a class="word2" href="#">VIN车架号车辆识别码查询</a></td>
+								<td><a class="word2" href="#">金融短信</a></td>
+								<td><a class="word2" href="#">移动联通基站</a></td>
+								<td><a class="word2" href="#">商标信息查询</a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><a class="word3" href="#">更多>></a></td>
+								<td><a class="word3" href="#">更多>></a></td>
+								<td><a class="word3" href="#">更多>></a></td>
+								<td><a class="word3" href="#">更多>></a></td>
+								<td><a class="word3" href="#">更多>></a></td>
+								<td><a class="word3" href="#">更多>></a></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td colspan="2" align="center"><a href="#"><img
+										src="img/Api04.png"
+										style="-webkit-border-radius: 5px; width: 300px; height: 90px;"></a>
+								</td>
+								<td colspan="2" align="center"><a href="#"><img
+										src="img/Api05.png"
+										style="-webkit-border-radius: 5px; width: 300px; height: 90px;"></a>
+								</td>
+								<td colspan="2" align="center"><a href="#"><img
+										src="img/Api06.png"
+										style="-webkit-border-radius: 5px; width: 300px; height: 90px;"></a>
+								</td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="header-menu-item">
+					<a class="header-menu-item" href="#">产品&解决方案</a>
+				</div>
+				<div class="header-menu-item">
+					<a class="header-menu-item" href="Login.html">聚合会员</a>
+				</div>
+				<div class="header-menu-item">
+					<a class="header-menu-item" href="#">数据积分</a>
+				</div>
+			</div>
+			<div class="header-action">
+				<div class="header-line"></div>
+				<div class="header-status">
+					<a class="header-btn1" href="Login.jsp">登录</a> <a
+						class="header-btn2" href="Register.jsp">注册</a>
+					<!--<a class="header-btn2" href="/account">个人中心</a>
+        				<a class="header-btn1" href="javascript:void(0)">退出</a>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="bodyer" align="center">
+		<table border="2px" class="table table-bordered table-hover">
+			<h2>商品展示</h2>
+			<tr align="center">
+				<th width="50px" style="text-align: center;">ID</th>
+				<th width="50px" style="text-align: center;"></th>
+				<th width="70px" style="text-align: center;">图片</th>
+				<th width="220px" style="text-align: center;">名称</th>
+				<th width="140px" style="text-align: center;">价格</th>
+				<th width="550px" style="text-align: center;">简介</th>
+				<th width="170px" style="text-align: center;">操作</th>
+			</tr>
+			<c:forEach items="${pageBean.date}" var="good">
+				<tr align="center" height="40px">
+					<td style="line-height: 40px">${good.gid}</td>
+					<td><c:if test="${good.gpaster!=0}">
+						企业专用
+					</c:if></td>
+					<td><img src="${good.gimg}" width="50px"
+						height="40px" alt="${good.gimg}" title="${good.gimg}"/></td>
+					<td style="line-height: 40px">${good.gname}</td>
+					<td style="line-height: 40px"><c:choose>
+							<c:when test="${good.gisprice==0}">
+								<p class="api-price yellow">按实际订单收费</p>
+							</c:when>
+							<c:otherwise>
+								<c:choose>
+									<c:when test="${good.gprice==0}">
+										<p class="api-price green" color="green">免费</p>
+									</c:when>
+									<c:otherwise>
+										<div class="api-price">
+											￥
+											<fmt:formatNumber type="number" value="${good.gprice}"
+												pattern="0.0000" maxFractionDigits="4" />
+											/次
+										</div>
+									</c:otherwise>
+								</c:choose>
+							</c:otherwise>
+						</c:choose></td>
+					<td>${good.gmarks}</td>
+					<td style="line-height: 40px"><button type="button" class="btn btn-danger btn-xs"
+							onclick="deleteGoods('${good.gid}')">
+							DELECT<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						</button>
+						<button type="button" class="btn btn-warning btn-xs"
+							data-toggle="modal" data-target="#myModalupdate"
+							onclick="updateGoods('${good.gid}')">
+							UPDATE<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+						</button></td>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td align="center"><button type="button"
+						class="btn btn-success btn-sm" data-toggle="modal"
+						data-target="#myModaladd">ADD<span class="glyphicon glyphicon-upload" aria-hidden="true"></span></button></td>
+			</tr>
+		</table>
+		<nav aria-label="Page navigation">
+		<ul class="pagination">
+			<c:choose>
+				<c:when test="${pageBean.currentPage-1<1}">
+					<li><a href="BackstageServlet?page=1" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+					</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="BackstageServlet?page=${pageBean.currentPage-1}"
+						aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+					</a></li>
+				</c:otherwise>
+			</c:choose>
+			<c:forEach begin="1" end="${pageBean.totalPage}" var="i">
+				<c:choose>
+					<c:when test="${pageBean.currentPage==i}">
+						<li class="active"><a href="show?page=${i}">${i}</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="BackstageServlet?page=${i}">${i}</a></li>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:choose>
+				<c:when test="${pageBean.currentPage+1>pageBean.totalPage}">
+					<li><a href="BackstageServlet?page=${pageBean.totalPage}"
+						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="BackstageServlet?page=${pageBean.currentPage+1}"
+						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+					</a></li>
+				</c:otherwise>
+			</c:choose>
+		</ul>
+		</nav>
+	</div>
+	<div id="footer">
+		<div class="footer-container">
+			<div class="footer-top clearfix">
+				<div class="footer-link">
+					<dl>
+						<dt>联系与支持</dt>
+						<dd>
+							<a href="">400-882-7715</a>
+						</dd>
+						<dd>
+							<a href="">售前咨询</a>
+						</dd>
+						<dd>
+							<a href="">客服&amp;售后</a>
+						</dd>
+						<dd>
+							<a href="">常见问题</a>
+						</dd>
+						<dd>
+							<a href="">工单后台</a>
+						</dd>
+						<dd>
+							<a href="">投诉与建议</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>关于聚合</dt>
+						<dd>
+							<a href="">合作伙伴</a>
+						</dd>
+						<dd>
+							<a href="">服务条款</a>
+						</dd>
+						<dd>
+							<a href="">隐私政策</a>
+						</dd>
+						<dd>
+							<a href="">市场合作</a>
+						</dd>
+						<dd>
+							<a href="">加入我们</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>快速入口</dt>
+						<dd>
+							<a href="">API数据</a>
+						</dd>
+						<dd>
+							<a href="">聚合会员</a>
+						</dd>
+						<dd>
+							<a href="">聚合积分</a>
+						</dd>
+						<dd>
+							<a href="">新闻动态</a>
+						</dd>
+						<dd>
+							<a href="">联系我们</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>产品服务</dt>
+						<dd>
+							<a href="">在线批量充值服务</a>
+						</dd>
+						<dd>
+							<a href="">聚合交易所</a>
+						</dd>
+						<dd>
+							<a href="">基站定位</a>
+						</dd>
+						<dd>
+							<a href="">聚盒子</a>
+						</dd>
+						<dd>
+							<a href="">行业分析报告</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt>解决方案</dt>
+						<dd>
+							<a href="">金融征信解决方案</a>
+						</dd>
+						<dd>
+							<a href="">汽车征信解决方案</a>
+						</dd>
+						<dd>
+							<a href="">商业地产分析</a>
+						</dd>
+						<dd>
+							<a href="">企业数据分析</a>
+						</dd>
+						<dd>
+							<a href="">充值技术解决方案</a>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="footer-bottom clearfix">
+				<div class="footer-bottom-left">
+					<a href=""> <span class="footer-pic1"></span>
+					</a> <a href=""> <span class="footer-pic2"></span> <span>苏公网安备
+							32059002001776号</span>
+					</a> <span class="footer-license">增值电信业务经营许可证：苏B2-20140496</span> <a
+						class="footer-icp" href="" target="_blank"
+						rel="noopener noreferrer"> <span>苏ICP备14006450号-3</span>
+					</a>
+				</div>
+				<div class="footer-bottom-right">
+					<span>天聚地合（苏州）数据股份有限公司&copy;版权所有</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-help">
+		<div class="footer-help-btn">
+			<span>联系</span> <span class="dot"></span> <span>咨询</span>
+		</div>
+	</div>
+	<!-- Modal add -->
+	<div class="modal fade" id="myModaladd" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">ADD</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" action="/JUHE/AddServlet"
+						method="post">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Gpaster</label>
+							<div class="col-sm-10">
+								<input name="gpaster" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gisprice</label>
+							<div class="col-sm-10">
+								<input name="gisprice" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gimg</label>
+							<div class="col-sm-10">
+								<input name="gimg" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gname</label>
+							<div class="col-sm-10">
+								<input name="gname" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gprice</label>
+							<div class="col-sm-10">
+								<input name="gprice" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gmarks</label>
+							<div class="col-sm-10">
+								<input name="gmarks" type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+					<button type="submit" class="btn btn-success">Save changes<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Modal update -->
+	<div class="modal fade" id="myModalupdate" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">UPDATE</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" action="/JUHE/UpdateServlet"
+						method="post">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Gid</label>
+							<div class="col-sm-10" id="gid"></div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Gpaster</label>
+							<div class="col-sm-10" id="gpaster"></div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gisprice</label>
+							<div class="col-sm-10" id="gisprice"></div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gimg</label>
+							<div class="col-sm-10" id="gimg"></div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gname</label>
+							<div class="col-sm-10" id="gname"></div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gprice</label>
+							<div class="col-sm-10" id="gprice"></div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Gmarks</label>
+							<div class="col-sm-10" id="gmarks"></div>
+						</div>
+						<div class="form-group"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+					<button type="submit" class="btn btn-success">Save changes<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function deleteGoods(gid) {
+			var b = confirm("是否删除！！！");
+			if (b) {
+				//alert(gid);
+				location.href = "DeleteServlet?gid=" + gid;
+			}
+		}
+		function updateGoods(gid) {
+			$
+					.post(
+							"FindServlet",
+							{
+								"gid" : gid
+							},
+							function(data) {
+								$("#gid")
+										.append(
+												"<input name='gid' type='text' class='form-control' readonly='readonly' value='"+data.gid+"'>");
+								$("#gpaster")
+										.append(
+												"<input name='gpaster' type='text' class='form-control' value='"+data.gpaster+"'>");
+								$("#gisprice")
+										.append(
+												"<input name='gisprice' type='text' class='form-control' value='"+data.gisprice+"'>");
+								$("#gimg")
+										.append(
+												"<input name='gimg' type='text' class='form-control' value='"+data.gimg+"'>");
+								$("#gname")
+										.append(
+												"<input name='gname' type='text' class='form-control' value='"+data.gname+"'>");
+								$("#gprice")
+										.append(
+												"<input name='gprice' type='text' class='form-control' value='"+data.gprice+"'>");
+								$("#gmarks")
+										.append(
+												"<input name='gmarks' type='text' class='form-control' value='"+data.gmarks+"'>");
+							});
+		}
+	</script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+.tbody{
+	margin:0 auto;
+	width: 1005px;
+	height: 350px;
+}
+.tbody{
+	margin:0 auto;
+	width: 1005px;
+	height: 100px;
+}

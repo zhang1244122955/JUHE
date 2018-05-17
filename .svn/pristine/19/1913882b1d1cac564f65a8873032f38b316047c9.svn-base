@@ -1,0 +1,215 @@
+<%@page import="com.zz624.entry.CarItem"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/car.css" />
+<link rel="bookmark" type="image/x-icon" href="img/brower.png" />
+<link rel="shortcut icon" href="img/brower.png">
+<link rel="icon" href="img/brower.png">
+<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/car.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<!--container start-->
+	<div id="container">
+		<!--header start-->
+		<div id="header">
+			<!--logo start-->
+			<a href="new_file.html"><div id="logo"></div></a>
+			<!--logo end-->
+			<!--search start-->
+			<div id="searchbox">
+				<div id="search"></div>
+			</div>
+			<!--search end-->
+			<!--help start-->
+			<div class="help">
+				<ul id="ul_nav">
+				    <!--login界面传来的用户名-->
+					<li class="nav_li"><a href="">${username}</a><img
+						src="img/top-arrow.png" alt="" />
+						<div class="nav_li_son">
+							<a  id="exit"><span style="color: #000000;">退出登录
+							</span></a>
+						</div></li>
+					<li class="nav_li"><a href="">常见问题</a></li>
+					<li class="nav_li"><a href="">关注聚合</a><img
+						src="img/top-arrow.png" alt="" />
+						<div class="nav_li_son2">
+							<img src="img/code.png" alt="" />
+						</div></li>
+					<li class="nav_li"><a href="">联系我们</a></li>
+				</ul>
+			</div>
+			<!--help end-->
+		</div>
+		<!--header end-->
+		<!--content start-->
+		<div id="content">
+			<!-- content left nav start-->
+			<div class="content_nav">
+				<div class="content_nav_1">
+					<div class="content_nav_1_img">
+						<img src="img/left-nav-1.png" alt="" />
+					</div>
+					<span class="content_nav_1_font"><a href="">&nbsp;&nbsp;我的聚合</a></span>
+				</div>
+				<div class="sideMenu">
+					<ul>
+						<li class="nLi on first">
+							<h3>
+								<img src="img/left-nav-2.png" />&nbsp;&nbsp;数据中心<img
+									src="img/cararrow.png" alt="" />
+							</h3>
+							<ul class="sub">
+								<li><a href="">我的数据</a></li>
+								<li><a href="">我的收藏</a></li>
+							</ul>
+						</li>
+						<li class="nLi">
+							<h3>
+								<img src="img/left-nav-3.png" />&nbsp;&nbsp;&nbsp;&nbsp;安全中心<img
+									src="img/cararrow.png" alt="" />
+							</h3>
+							<ul class="sub">
+								<li><a href="">IP白名单</a></li>
+								<li><a href="">二次验证</a></li>
+								<li><a href="">密码修改</a></li>
+								<li><a href="">预警号码</a></li>
+							</ul>
+						</li>
+						<li class="nLi1">
+							<h3>
+								<img src="img/left-nav-4.png" />&nbsp;&nbsp;我的余额
+							</h3>
+						</li>
+						<li class="nLi1">
+							<h3>
+								<img src="img/left-nav-5.png" /><a href="car.jsp">&nbsp;&nbsp;
+									我的购物车</a>
+							</h3>
+						</li>
+						<li class="nLi1">
+							<h3>
+								<img src="img/left-nav-6.png" /><a href="order.jsp">&nbsp;&nbsp;我的订单</a>
+							</h3>
+						</li>
+						<li class="nLi">
+							<h3>
+								<img src="img/left-nav-7.png" />&nbsp;&nbsp;我的活动<img
+									src="img/cararrow.png" alt="" />
+							</h3>
+							<ul class="sub">
+								<li><a href="">短信发送</a></li>
+								<li><a href="">金融通信</a></li>
+							</ul>
+						</li>
+						<li class="nLi">
+							<h3>
+								<img src="img/left-nav-8.png" />&nbsp;用户中心<img
+									src="img/cararrow.png" alt="" />
+							</h3>
+							<ul class="sub">
+								<li><a href="">账户信息</a></li>
+								<li><a href="">实名认证</a></li>
+								<li><a href="">会员特权</a></li>
+								<li><a href="">聚合币</a></li>
+								<li><a href="">优惠券</a></li>
+								<li><a href="">发票管理</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- content left nav end-->
+			<!-- content right cart start-->
+			<div class="content_right">
+				<div class="content_right_content">
+					<div class="content_right_content_tips">我的购物车</div>
+					<div style="height: 15px;"></div>
+					<table
+						style="width: 1100px; border-left-style: none; border-right-style: none; border-radius: 8px;">
+						<tr style="background-color: rgb(247, 247, 247);">
+							<th>图片</th>
+							<th>商品名称</th>
+							<th>单价</th>
+							<th>数量</th>
+							<th>总价</th>
+							<th>操作</th>
+						</tr>
+						<c:forEach items="${sessionScope.car.map}" var="map">
+							<tr class="td_changenum" style="background-color: white;" align="center">
+								<td width="140px"><img src="${map.value.good.gimg}"  height="50px" align="center"/></td>
+								<td width="400px">${map.value.good.gname}</td>
+								<td width="170px" style="text-align: center;">
+								<fmt:formatNumber type="number" value="${map.value.good.gprice}"
+												pattern="0.0000" maxFractionDigits="4" />元/次
+								</td>
+								<td width="170px" style="text-align: center;">
+									<button onclick="reduceOne('${map.value.good.gid}')"
+										style="width: 15px; background-color: #bbb; border:1px solid white;">-</button>
+									<input type="text" class="num" readonly="readonly" value="${map.value.num}" style="width: 30px; text-align: center" />
+									<button onclick="addOne('${map.value.good.gid}')"
+										style="width: 15px; background-color: #bbb; border:1px solid white;">+</button>
+								</td>
+								<td width="170px" style="text-align: center;">
+								<fmt:formatNumber type="number" value="${map.value.totalMoney}"
+												pattern="0.0000" maxFractionDigits="4" />元
+								</td>
+								<td width="50px"><a
+									href="DeleteCar?gid=${map.value.good.gid}">删除</a></td>
+							</tr>
+						</c:forEach>
+					</table>
+					<div class="sumprice">
+						<div class="sumprice_right">
+							<div class="sum">小计：</div>
+							<div class="price">
+							<fmt:formatNumber type="number" value="${sessionScope.car.hj}"
+												pattern="0.0000" maxFractionDigits="4" />元
+							</div>
+						</div>
+					</div>
+					<div style="height: 20px;"></div>
+					<div class="cart_account">
+						<div class="cart_button">
+							<div class="cart_button_1">
+								<a href="ShowServlet"><button class="cart_button_1_bg">
+										<span><< 返回商品列表</span>
+									</button></a>
+							</div>
+							<div class="cart_button_2">
+								<a href="order.jsp" class="cart_button_2_bg">
+										<span>结算 >></span>
+									</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- content right cart end-->
+		</div>
+		<!--content end-->
+	</div>
+	<!--container end-->
+	<script type="text/javascript">
+		function addOne(gid) {
+			location.href = "AddOneCar?gid=" + gid;
+		}
+		function clearCar() {
+			location.href = "ClearCar";
+		}
+		function reduceOne(gid) {
+			location.href = "DeleteOneCar?gid=" + gid;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+.tbody{
+	margin:0 auto;
+	width: 1005px;
+	height: 350px;
+}
+.but{
+	margin:0 auto;
+	width: 1005px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px
+}

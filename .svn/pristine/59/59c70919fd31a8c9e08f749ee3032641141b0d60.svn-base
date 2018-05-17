@@ -1,0 +1,229 @@
+$(function() {
+		var flag=false;
+		$(".but01").click(function() {
+			$(".content_right_content_text_2").css("display", "block");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$("#content_right_content_tips_sel_1").click(function() {
+			$(".content_right_content_text_1").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$("#content_right_content_tips_sel_2").click(function() {
+			$(".content_right_content_text_2").css("display", "block");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$("#content_right_content_tips_sel_3").click(function() {
+			$(".content_right_content_text_3").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$("#content_right_content_tips_sel_4").click(function() {
+			$(".content_right_content_text_4").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+		});
+		$("#but3").click(function() {
+			$(".content_right_content_text_3").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_4").css("display", "none");
+		});
+		$(".but1").click(function() {
+			$(".content_right_content_text_4").css("display", "block");
+			$(".content_right_content_text_2").css("display", "none");
+			$(".content_right_content_text_1").css("display", "none");
+			$(".content_right_content_text_3").css("display", "none");
+		});
+		$(".but1").mouseenter(function() {
+			$(this).css("background-color","rgb(0, 120, 215)");
+		});
+		$(".but1").mouseleave(function() {
+			$(this).css("background-color","rgb(0, 154, 235)");
+		});
+		$(".but0").mouseenter(function() {
+			$(this).css("background-color","rgb(203, 202, 203)");
+		});
+		$(".but0").mouseleave(function() {
+			$(this).css("background-color","rgb(183, 183, 183)");
+		});
+		$("#but2").mouseenter(function() {
+			$(this).css("background-color","rgb(208, 208, 208)");
+		});
+		$("#but2").mouseleave(function() {
+			$(this).css("background-color","rgb(234, 234, 234)");
+		});
+		$("#but03").mouseenter(function() {
+			$(this).css("background-color","rgb(208, 208, 208)");
+			$(this).css("color","rgb(122,122,122)");
+		});
+		$("#but03").mouseleave(function() {
+			$(this).css("background-color","rgb(194,192,193)");
+			$(this).css("color","rgb(96, 96, 96)");
+		});
+		$(".but01").mouseenter(function() {
+			$(this).css("background-color","rgb(252, 90, 127)");
+			$(this).css("color","rgb(234, 221, 187)");
+		});
+		$(".but01").mouseleave(function() {
+			$(this).css("background-color","rgb(166, 166, 166)");
+			$(this).css("color","rgb(255, 255, 255)");
+		});
+		$(".butlx").mouseenter(function() {
+			$(this).css("background-color","rgb(213, 68, 75)");
+			$(this).css("color","rgb(185, 186, 190)");
+		});
+		$(".butlx").mouseleave(function() {
+			$(this).css("background-color","rgb(202, 21, 29)");
+			$(this).css("color","rgb(240, 240, 240)");
+		});
+		$(".but02").mouseenter(function() {
+			$(this).css("background-color","rgb(60, 167, 240)");
+			$(this).css("color","rgb(234, 221, 187)");
+		});
+		$(".but02").mouseleave(function() {
+			$(this).css("background-color","rgb(166, 166, 166)");
+			$(this).css("color","rgb(255, 255, 255)");
+		});
+		$("#daifu").mouseenter(function() {
+			$(this).css("color","rgb(158, 158, 158)");
+		});
+		$("#daifu").mouseleave(function() {
+			$(this).css("color","rgb(20,20,20)");
+		});
+		$(".content_right_dbody_top_1").mouseenter(function() {
+			$(this).css("opacity","0.6");
+		});
+		$(".content_right_dbody_top_1").mouseleave(function() {
+			$(this).css("opacity","1");
+		});
+		$("#img002").click(function() {
+			flag=true;
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/Api6.png\">");
+			$(".content_right_dbody_top_center_right").css("display", "block");
+			$(".content_right_dbody_bottom").css("display", "none");
+		});
+		$("#img002").mouseenter(function() {
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/Api6.png\">");
+			$(".content_right_dbody_top_center_right").css("display", "block");
+			$(".content_right_dbody_bottom").css("display", "none");
+		});
+		$("#img002").mouseleave(function() {
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/Api6.png\">");
+			if(flag){
+				$(".content_right_dbody_top_center_right").css("display", "block");
+				$(".content_right_dbody_bottom").css("display", "none");
+			}else{
+				$(".content_right_dbody_top_center_right").css("display", "none");
+				$(".content_right_dbody_bottom").css("display", "block");
+			}
+		});
+		
+		$("#img001").click(function() {
+			flag=true;
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/wei.png\">");
+			$(".content_right_dbody_top_center_right").css("display", "block");
+			$(".content_right_dbody_bottom").css("display", "none");
+		});
+		$("#img001").mouseenter(function() {
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/wei.png\">");
+			$(".content_right_dbody_top_center_right").css("display", "block");
+			$(".content_right_dbody_bottom").css("display", "none");
+		});
+		$("#img001").mouseleave(function() {
+			$(".content_right_dbody_top_center_right").html("<img src=\"img/wei.png\">");
+			if(flag){
+				$(".content_right_dbody_top_center_right").css("display", "block");
+				$(".content_right_dbody_bottom").css("display", "none");
+			}else{
+				$(".content_right_dbody_top_center_right").css("display", "none");
+				$(".content_right_dbody_bottom").css("display", "block");
+			}
+		});
+		
+		$("#img003").click(function() {
+			$(".content_right_dbody_top_center_right").css("display", "none");
+			$(".content_right_dbody_bottom").css("display", "block");
+		});
+		$("#img004").click(function() {
+			$(".content_right_dbody_top_center_right").css("display", "none");
+			$(".content_right_dbody_bottom").css("display", "block");
+		});
+	})
+	        $(function () {
+            function Init(node) {
+                return node.html("<option>---请选择---</option>");
+            }
+/* //多维数组做数据来源 */
+            var db = {
+            河北: {
+                    唐山: "路北区,路南区,丰润区",
+                    张家口: "桥东区,桥西区,下花园区,宣化区",
+                    石家庄:"桥西区,桥东区,新华区,长安区,裕华区,矿区,高新区",
+                    衡水: "路北区,河东区,河西区,开发区,滨湖新区",
+                },
+        江苏: {
+        		南京: "玄武区,鼓楼区,建邺区,白下区,秦淮区",
+        		南通: "崇川区,港闸区",
+        		苏州: "金阊区,沧浪区,平江区,虎丘区,吴中区",
+                },
+                湖南: {
+                	长沙: "天心区,芙蓉区,岳麓区,开福区,雨花区",
+                	浏阳: "城区,浏东新区,浏南新区,浏西新区,浏北新区,工业新城",
+                	湘潭: "雨湖区,岳塘区",
+                }
+            };
+　　　　　　　　// 初始化select节点
+            $.each(db, function (changShang) {
+                $("#selF").append("<option>" + changShang + "</option>");
+            })
+            // 一级变动
+            $("#selF").change(function () {
+                // 清空二三级
+                Init($("#selB"));
+                Init($("#selC"));
+                $.each(db,function (cs,pps) {
+                    if ($("#selF option:selected").text() == cs) {
+                        $.each(pps, function (pp, xhs) {
+                            $("#selB").append("<option>" + pp + "</option>");
+                        });
+                        $("#selB").change(function () {
+                            Init($("#selC"));
+                            $.each(pps, function (pp,xhs) {
+                                if ($("#selB option:selected").text()==pp) {
+                                    $.each(xhs.split(','), function () {
+                                        $("#selC").append("<option>" + this + "</option>");
+                                    })
+                                }
+                            })
+                        })
+                    }
+                })
+            })
+
+        });
+		function tj() {
+			alert("添加成功");
+			if($("#keep").prop("checked")){
+				var msg=document.getElementById("selF").value+document.getElementById("selB").value+document.getElementById("selC").value+document.getElementById("address").value+"*"+document.getElementById("cname").value+"*"+document.getElementById("postcode").value+"*"+document.getElementById("telephone").value;
+				// alert(msg);
+				location.href="AddClientServlet?msg="+msg;
+			}
+		}
+		function selectclient(){
+			location.href="SelectClientServlet";
+		}
+		/*function now(){
+			location.href="order.jsp";
+		}
+		function success(){
+			location.href="order.jsp";
+			
+		}*/
